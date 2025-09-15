@@ -6290,14 +6290,6 @@ var ffmSetPointEditor = /*#__PURE__*/function (_AbstractEditor) {
         var valueLocal = (0,_utilities_js__WEBPACK_IMPORTED_MODULE_23__.isNumber)(_this.input.value.toString()) ? _this.input.value : 0;
 
         // Check to see if the number is less then -32767
-        if (valueLocal < _this.schema.minimum) {
-          valueLocal = _this.schema.minimum;
-        }
-        if (valueLocal > _this.schema.maximum) {
-          valueLocal = _this.schema.maximum;
-        }
-
-        // Check to see if the number is less then -32767
         if (valueLocal < -32768) {
           valueLocal = -32768;
         }
@@ -6364,14 +6356,6 @@ var ffmSetPointEditor = /*#__PURE__*/function (_AbstractEditor) {
       var valueLocal = (0,_utilities_js__WEBPACK_IMPORTED_MODULE_23__.isNumber)(value.toString()) ? value : 0;
 
       // Check to see if the number is less then -32767
-      if (valueLocal < this.schema.minimum) {
-        valueLocal = this.schema.minimum;
-      }
-      if (valueLocal > this.schema.maximum) {
-        valueLocal = this.schema.maximum;
-      }
-
-      // Check to see if the number is less then -32767
       if (valueLocal < -32768) {
         valueLocal = -32768;
       }
@@ -6401,14 +6385,6 @@ var ffmSetPointEditor = /*#__PURE__*/function (_AbstractEditor) {
         }
       }
       valueLocal = Math.floor(valueLocal);
-
-      // Check to see if the number is less then -32767
-      if (valueLocal < this.schema.minimum) {
-        valueLocal = this.schema.minimum;
-      }
-      if (valueLocal > this.schema.maximum) {
-        valueLocal = this.schema.maximum;
-      }
 
       // Check to see if the number is less then -32767
       if (valueLocal < -32768) {
