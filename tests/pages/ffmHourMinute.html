@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="../../dist/nonmin/jsoneditor.js"></script>
+</head>
+<body>
+
+<textarea class="debug" cols="30" rows="10"></textarea>
+<button class='get-value'>Get Value</button>
+<button class='set-value01'>Set Value 19H 59M (1199)</button>
+<button class='set-value02'>Set Value 0H 0M -32768</button>
+<button class='set-value03'>Set Value 1H 32M 92</button>
+<button class='set-value04'>Set Value 0H 0M 0</button>
+<button class='set-value05'>Set Value Hidden -1 -1</button>
+<div class='container'></div>
+
+<script>
+  var container = document.querySelector('.container');
+  var debug = document.querySelector('.debug');
+  var schema = 
+  {
+  "type": "object",
+  "title": "Car",
+  "properties": {
+    "loop2": {
+        "type": 'integer',
+        "format": 'ffmHourMinute',
+        "title": "soak time",
+        "minimum": 0,
+        "maximum": 10019,
+        "ShowDisableCheckBox" : true,
+        "disabledValue" : -1,
+        "default" : 0
+      },
+      "option": {
+        "type": 'integer',
+        "format": 'ffmHourMinute',
+        "title": "soak time",
+        "minimum": 0,
+        "maximum": 10019,
+        "ShowDisableCheckBox" : false,
+        "disabledValue" : -1,
+        "default" : 0
+      }
+    }
+  };
+
+  var editor = new JSONEditor(container, {
+    schema: schema
+  });
+
+  document.querySelector('.get-value').addEventListener('click', function () {
+    debug.value = JSON.stringify(editor.getValue());
+  });
+
+
+  document.querySelector('.set-value01').addEventListener('click', function () {
+    editor.setValue({"loop2": 10,"option":1199});
+  });
+
+  document.querySelector('.set-value02').addEventListener('click', function () {
+    editor.setValue({"loop2": 19,"option":-32768});
+  });
+
+  document.querySelector('.set-value03').addEventListener('click', function () {
+    editor.setValue({"loop2": 3000,"option": 92});
+  });
+
+  document.querySelector('.set-value04').addEventListener('click', function () {
+    editor.setValue({"loop2": 0,"option": 0});
+  });
+
+  document.querySelector('.set-value05').addEventListener('click', function () {
+    editor.setValue({"loop2": -1,"option": -1});
+  });
+
+  
+</script>
+
+</body>
+</html>
