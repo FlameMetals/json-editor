@@ -108,7 +108,6 @@ const stepper = schema => {
   }
 }
 
-
 /* Use the bit select editor for schemas with type `integer` and format `ffmSelectbit` */
 const ffmSelectBit = schema => {
   if ((schema.type === 'integer') && schema.format === 'ffmSelectBit') {
@@ -129,7 +128,6 @@ const ffmSetPoint = schema => {
     return 'ffmSetPoint'
   }
 }
-
 
 /* Enable custom editor type */
 const button = schema => schema.format === 'button' && 'button'
