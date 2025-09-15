@@ -100,6 +100,15 @@ export class ffmSetPointEditor extends AbstractEditor {
       let valueLocal = isNumber(this.input.value.toString()) ? this.input.value : 0
 
       // Check to see if the number is less then -32767
+      if (valueLocal < this.schema.minimum) {
+        valueLocal = this.schema.minimum
+      }
+
+      if (valueLocal > this.schema.maximum) {
+        valueLocal = this.schema.maximum
+      }
+
+      // Check to see if the number is less then -32767
       if (valueLocal < -32768) {
         valueLocal = -32768
       }
@@ -174,6 +183,15 @@ export class ffmSetPointEditor extends AbstractEditor {
     let valueLocal = isNumber(value.toString()) ? value : 0
 
     // Check to see if the number is less then -32767
+    if (valueLocal < this.schema.minimum) {
+      valueLocal = this.schema.minimum
+    }
+
+    if (valueLocal > this.schema.maximum) {
+      valueLocal = this.schema.maximum
+    }
+
+    // Check to see if the number is less then -32767
     if (valueLocal < -32768) {
       valueLocal = -32768
     }
@@ -181,6 +199,8 @@ export class ffmSetPointEditor extends AbstractEditor {
     if (valueLocal > 32767) {
       valueLocal = 32767
     }
+
+
 
     this.disableCheckBox.checked = false
     this.input.removeAttribute('hidden')
@@ -210,6 +230,15 @@ export class ffmSetPointEditor extends AbstractEditor {
     }
 
     valueLocal = Math.floor(valueLocal)
+    
+    // Check to see if the number is less then -32767
+    if (valueLocal < this.schema.minimum) {
+      valueLocal = this.schema.minimum
+    }
+
+    if (valueLocal > this.schema.maximum) {
+      valueLocal = this.schema.maximum
+    }
 
     // Check to see if the number is less then -32767
     if (valueLocal < -32768) {

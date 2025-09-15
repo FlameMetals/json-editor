@@ -186,8 +186,8 @@ export class ffmHourMinuteEditor extends AbstractEditor {
       this.inputMinutes.value = 0
     }
 
-    if (valueLocal > 32768) {
-      valueLocal = 32768
+    if (valueLocal > 32767) {
+      valueLocal = 32767
     }
 
     // update the global storge value
