@@ -200,8 +200,6 @@ export class ffmSetPointEditor extends AbstractEditor {
       valueLocal = 32767
     }
 
-
-
     this.disableCheckBox.checked = false
     this.input.removeAttribute('hidden')
 
@@ -230,7 +228,7 @@ export class ffmSetPointEditor extends AbstractEditor {
     }
 
     valueLocal = Math.floor(valueLocal)
-    
+
     // Check to see if the number is less then -32767
     if (valueLocal < this.schema.minimum) {
       valueLocal = this.schema.minimum
