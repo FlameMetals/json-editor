@@ -131,7 +131,7 @@ export class ffmSelectBitEditor extends AbstractEditor {
       changed = true
     }
 
-    var bufferView = Int16Array.from([buffer])
+    const bufferView = Int16Array.from([buffer])
 
     this.value = bufferView[0]
     return changed

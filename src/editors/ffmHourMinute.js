@@ -96,7 +96,7 @@ export class ffmHourMinuteEditor extends AbstractEditor {
 
     // Add an event handler to update the controls value when one of the controls value is changed
     this.SomeThingChangedHandler_ffmHoursMinute = (e) => {
-      var valueLocal = 0
+      let valueLocal = 0
 
       // Check to see if the check box is being clicked on and get it value
       // if the diable check box is checked get then use the disable value
@@ -160,7 +160,7 @@ export class ffmHourMinuteEditor extends AbstractEditor {
     }
 
     // Check to see if the value is a number
-    var valueLocal = isNumber(value.toString()) ? value : 0
+    let valueLocal = isNumber(value.toString()) ? value : 0
 
     this.disableCheckBox.checked = false
     this.inputHours.removeAttribute('hidden')

@@ -97,16 +97,16 @@ export class ffmSetPointEditor extends AbstractEditor {
 
     // Add an event handler to update the controls value when one of the controls value is changed
     this.SomeThingChangedHandler_ffmSetPoint = (e) => {
-      var valueLocal = isNumber(this.input.value.toString()) ? this.input.value : 0
+      let valueLocal = isNumber(this.input.value.toString()) ? this.input.value : 0
 
-    // Check to see if the number is less then -32767
-    if (valueLocal < -32768) {
-      valueLocal = -32768
-    }
+      // Check to see if the number is less then -32767
+      if (valueLocal < -32768) {
+        valueLocal = -32768
+      }
 
-    if (valueLocal > 32767) {
-      valueLocal = 32767
-    }
+      if (valueLocal > 32767) {
+        valueLocal = 32767
+      }
 
       // Check to see if the check box is being clicked on and get it value
       // if the diable check box is checked get then use the disable value
@@ -169,10 +169,9 @@ export class ffmSetPointEditor extends AbstractEditor {
 
       return
     }
-    
 
     // Check to see if the value is a int
-    var valueLocal = isNumber(value.toString()) ? value : 0
+    let valueLocal = isNumber(value.toString()) ? value : 0
 
     // Check to see if the number is less then -32767
     if (valueLocal < -32768) {
