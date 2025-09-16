@@ -118,6 +118,13 @@ export class ffmSetPointEditor extends AbstractEditor {
           const impliedDecimalPoints = this.schema.impliedDecimalPoints
           const mathPowerOf10 = Math.pow(10, impliedDecimalPoints)
           valueLocal = valueLocal * mathPowerOf10
+          if (valueLocal < this.schema.minimum) {
+            valueLocal = this.schema.minimum
+          }
+
+          if (valueLocal > this.schema.maximum) {
+            valueLocal = this.schema.maximum
+          }
         }
       }
 
@@ -190,7 +197,15 @@ export class ffmSetPointEditor extends AbstractEditor {
     if (typeof this.schema.impliedDecimalPoints !== 'undefined' && isNumber(this.schema.impliedDecimalPoints.toString()) && this.schema.impliedDecimalPoints > 0) {
       const impliedDecimalPoints = this.schema.impliedDecimalPoints
       const mathPowerOf10 = Math.pow(10, impliedDecimalPoints)
-      this.input.value = (valueLocal / mathPowerOf10).toFixed(impliedDecimalPoints)
+      let testValue = (valueLocal / mathPowerOf10).toFixed(impliedDecimalPoints)
+      if (testValue < this.schema.minimum) {
+        testValue = this.schema.minimum
+      }
+      if (testValue > this.schema.maximum) {
+        testValue = this.schema.maximum
+      }
+
+      this.input.value = testValue
     } else {
       this.input.value = valueLocal
     }

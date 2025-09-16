@@ -6307,6 +6307,12 @@ var ffmSetPointEditor = /*#__PURE__*/function (_AbstractEditor) {
             var impliedDecimalPoints = _this.schema.impliedDecimalPoints;
             var mathPowerOf10 = Math.pow(10, impliedDecimalPoints);
             valueLocal = valueLocal * mathPowerOf10;
+            if (valueLocal < _this.schema.minimum) {
+              valueLocal = _this.schema.minimum;
+            }
+            if (valueLocal > _this.schema.maximum) {
+              valueLocal = _this.schema.maximum;
+            }
           }
         }
         _this.setValue(valueLocal);
@@ -6370,7 +6376,14 @@ var ffmSetPointEditor = /*#__PURE__*/function (_AbstractEditor) {
       if (typeof this.schema.impliedDecimalPoints !== 'undefined' && (0,_utilities_js__WEBPACK_IMPORTED_MODULE_23__.isNumber)(this.schema.impliedDecimalPoints.toString()) && this.schema.impliedDecimalPoints > 0) {
         var impliedDecimalPoints = this.schema.impliedDecimalPoints;
         var mathPowerOf10 = Math.pow(10, impliedDecimalPoints);
-        this.input.value = (valueLocal / mathPowerOf10).toFixed(impliedDecimalPoints);
+        var testValue = (valueLocal / mathPowerOf10).toFixed(impliedDecimalPoints);
+        if (testValue < this.schema.minimum) {
+          testValue = this.schema.minimum;
+        }
+        if (testValue > this.schema.maximum) {
+          testValue = this.schema.maximum;
+        }
+        this.input.value = testValue;
       } else {
         this.input.value = valueLocal;
       }
